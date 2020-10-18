@@ -7,3 +7,4 @@
 - Okhttp3的使用
 - Retrofit的使用
 - 协程的使用
+- 签名APK
