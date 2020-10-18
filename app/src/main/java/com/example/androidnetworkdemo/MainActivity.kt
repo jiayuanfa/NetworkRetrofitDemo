@@ -13,10 +13,7 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.json.JSONArray
 import org.json.JSONObject
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
+import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -42,6 +39,16 @@ class MainActivity : AppCompatActivity() {
         retrofit()
     }
 
+    // 协程
+    suspend fun getAppData() {
+        try {
+            val appList = ServiceCreator.create<AppService>().getAppData().await()
+        } catch (e: Exception) {
+
+        }
+    }
+
+    // 非协程
     private fun retrofit() {
 
         val appService = ServiceCreator.create<AppService>()
